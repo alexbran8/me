@@ -6,12 +6,12 @@ module.exports = {
     loader: 'akamai',
     path: '',
   },
-  exportPathMap: function () {
-    return {
-      '/': { page: '/' },
-      // "/about": { page: "/about" },
-    }
-  },
+  // exportPathMap: function () {
+  //   return {
+  //     '/': { page: '/' },
+  //     // "/about": { page: "/about" },
+  //   }
+  // },
   //assetPrefix: '',
   assetPrefix: !debug ? '/' : '',
   webpack: (config, { dev }) => {
