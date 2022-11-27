@@ -91,3 +91,8 @@ module.exports = withBundleAnalyzer({
     return config
   },
 })
+
+module.exports = {
+  basePath: '/docs',
+  assetsPrefix: '/tailwind-nextjs-blog/',
+}
