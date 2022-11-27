@@ -54,7 +54,7 @@ const securityHeaders = [
 
 module.exports = withBundleAnalyzer({
   reactStrictMode: true,
-  basePath: '/docs',
+  basePath: '/tailwind-nextjs-blog',
   assetsPrefix: '/tailwind-nextjs-blog/',
   pageExtensions: ['js', 'jsx', 'md', 'mdx'],
   images: {
