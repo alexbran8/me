@@ -12,7 +12,7 @@
     "lint": "next lint --fix --dir pages --dir components --dir lib --dir layouts --dir scripts",
     "prepare": "husky install",
     "export": "next export",
-    "deploy": "next build && next export && git add out/ && git commit -m \"Deploy gh-pages\" && git subtree  push  --prefix out origin gh-pages"
+    "deploy": "next build && next export && git add out/ -f && git commit -m \"Deploy gh-pages\" && git subtree  push  --prefix out origin gh-pages"
   },
   "dependencies": {
     "@fontsource/inter": "4.5.2",
