@@ -54,6 +54,7 @@ const securityHeaders = [
 
 module.exports = withBundleAnalyzer({
   reactStrictMode: true,
+  assetsPrefix: '/tailwind-nextjs-blog',
   pageExtensions: ['js', 'jsx', 'md', 'mdx'],
   images: {
     loader: 'akamai',
