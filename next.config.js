@@ -52,12 +52,12 @@ const securityHeaders = [
   },
 ]
 
-console.log(process.env.NODE_ENV)
+console.log()
 
 module.exports = withBundleAnalyzer({
   reactStrictMode: true,
-  basePath: '/tailwind-nextjs-blog',
-  assetsPrefix: '/tailwind-nextjs-blog/',
+  basePath: process.env.NODE_ENV === 'development' ? '' : '/tailwind-nextjs-blog',
+  assetsPrefix: process.env.NODE_ENV === 'development' ? '' : '/tailwind-nextjs-blog',
   pageExtensions: ['js', 'jsx', 'md', 'mdx'],
   images: {
     loader: 'akamai',
