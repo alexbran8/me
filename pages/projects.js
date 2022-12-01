@@ -23,7 +23,7 @@ export default function Projects() {
                 key={d.title}
                 title={d.title}
                 description={d.description}
-                imgSrc={`${d.imgSrc}`}
+                imgSrc={`${process.env.BASE_PATH}${d.imgSrc}`}
                 href={d.href}
               />
             ))}
