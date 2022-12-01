@@ -2,9 +2,12 @@ import siteMetadata from '@/data/siteMetadata'
 import projectsData from '@/data/projectsData'
 import Card from '@/components/Card'
 import { PageSEO } from '@/components/SEO'
+import getConfig from 'next/config'
+
+const { publicRuntimeConfig } = getConfig()
 
 export default function Projects() {
-  console.log(process.env.BASE_PATH)
+  console.log(publicRuntimeConfig)
   return (
     <>
       <PageSEO title={`Projects - ${siteMetadata.author}`} description={siteMetadata.description} />
@@ -24,7 +27,7 @@ export default function Projects() {
                 key={d.title}
                 title={d.title}
                 description={d.description}
-                imgSrc={`${process?.env?.BASE_PATH}${d.imgSrc}`}
+                imgSrc={`${publicRuntimeConfig.BASE_PATH}${d.imgSrc}`}
                 href={d.href}
               />
             ))}
