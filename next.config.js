@@ -61,6 +61,7 @@ module.exports = withBundleAnalyzer({
   pageExtensions: ['js', 'jsx', 'md', 'mdx'],
   images: {
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
+    path: process.env.NODE_ENV === 'development' ? '/' : '/tailwind-nextjs-blog/',
     unoptimized: true,
   },
   eslint: {
