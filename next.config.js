@@ -54,22 +54,19 @@ const securityHeaders = [
   },
 ]
 
-module.exports = withPlugins([
-  [
-    optimizedImages,
-    {
-      // these are the default values so you don't have to provide them if they are good enough for your use-case.
-      // but you can overwrite them here with any valid value you want.
-      inlineImageLimit: 8192,
-      imagesFolder: 'images',
-      imagesName: '[name]-[hash].[ext]',
-      handleImages: ['jpeg', 'png', 'svg', 'webp', 'gif'],
-      removeOriginalExtension: false,
-      optimizeImages: true,
-      optimizeImagesInDev: false,
-      mozjpeg: {
-        quality: 80,
-      },
+module.exports = withBundleAnalyzer({
+  optimizedImages: {
+    // these are the default values so you don't have to provide them if they are good enough for your use-case.
+    // but you can overwrite them here with any valid value you want.
+    inlineImageLimit: 8192,
+    imagesFolder: 'images',
+    imagesName: '[name]-[hash].[ext]',
+    handleImages: ['jpeg', 'png', 'svg', 'webp', 'gif'],
+    removeOriginalExtension: false,
+    optimizeImages: false,
+    optimizeImagesInDev: false,
+    mozjpeg: {
+      quality: 80,
       optipng: {
         optimizationLevel: 3,
       },
@@ -86,41 +83,41 @@ module.exports = withPlugins([
         quality: 75,
       },
     },
-  ],
-  [
-    withBundleAnalyzer({
-      reactStrictMode: true,
-      basePath: process.env.NODE_ENV === 'development' ? '' : '/tailwind-nextjs-blog',
-      assetPrefix: process.env.NODE_ENV === 'development' ? '/' : '/tailwind-nextjs-blog/',
-      pageExtensions: ['js', 'jsx', 'md', 'mdx'],
-      eslint: {
-        dirs: ['pages', 'components', 'lib', 'layouts', 'scripts'],
+  },
+  reactStrictMode: true,
+  basePath: process.env.NODE_ENV === 'development' ? '' : '/tailwind-nextjs-blog',
+  assetPrefix: process.env.NODE_ENV === 'development' ? '/' : '/tailwind-nextjs-blog/',
+  pageExtensions: ['js', 'jsx', 'md', 'mdx'],
+  images: {
+    loader: 'imgix',
+    path: '',
+  },
+  eslint: {
+    dirs: ['pages', 'components', 'lib', 'layouts', 'scripts'],
+  },
+  async headers() {
+    return [
+      {
+        source: '/(.*)',
+        headers: securityHeaders,
       },
-      async headers() {
-        return [
-          {
-            source: '/(.*)',
-            headers: securityHeaders,
-          },
-        ]
-      },
-      webpack: (config, { dev, isServer }) => {
-        config.module.rules.push({
-          test: /\.svg$/,
-          use: ['@svgr/webpack'],
-        })
+    ]
+  },
+  webpack: (config, { dev, isServer }) => {
+    config.module.rules.push({
+      test: /\.svg$/,
+      use: ['@svgr/webpack'],
+    })
 
-        if (!dev && !isServer) {
-          // Replace React with Preact only in client production build
-          Object.assign(config.resolve.alias, {
-            'react/jsx-runtime.js': 'preact/compat/jsx-runtime',
-            react: 'preact/compat',
-            'react-dom/test-utils': 'preact/test-utils',
-            'react-dom': 'preact/compat',
-          })
-        }
-        return config
-      },
-    }),
-  ],
-])
+    if (!dev && !isServer) {
+      // Replace React with Preact only in client production build
+      Object.assign(config.resolve.alias, {
+        'react/jsx-runtime.js': 'preact/compat/jsx-runtime',
+        react: 'preact/compat',
+        'react-dom/test-utils': 'preact/test-utils',
+        'react-dom': 'preact/compat',
+      })
+    }
+    return config
+  },
+})
