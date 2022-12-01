@@ -1,4 +1,5 @@
-const { withImageLoader } = require('next-image-loader')
+const withPlugins = require('next-compose-plugins')
+const optimizedImages = require('next-optimized-images')
 const withBundleAnalyzer = require('@next/bundle-analyzer')({
   enabled: process.env.ANALYZE === 'true',
 })
@@ -53,38 +54,73 @@ const securityHeaders = [
   },
 ]
 
-module.exports = withBundleAnalyzer({
-  reactStrictMode: true,
-  basePath: process.env.NODE_ENV === 'development' ? '' : '/tailwind-nextjs-blog',
-  assetPrefix: process.env.NODE_ENV === 'development' ? '/' : '/tailwind-nextjs-blog/',
-  pageExtensions: ['js', 'jsx', 'md', 'mdx'],
-  withImageLoader,
-  eslint: {
-    dirs: ['pages', 'components', 'lib', 'layouts', 'scripts'],
-  },
-  async headers() {
-    return [
-      {
-        source: '/(.*)',
-        headers: securityHeaders,
+module.exports = withPlugins([
+  [
+    optimizedImages,
+    {
+      // these are the default values so you don't have to provide them if they are good enough for your use-case.
+      // but you can overwrite them here with any valid value you want.
+      inlineImageLimit: 8192,
+      imagesFolder: 'images',
+      imagesName: '[name]-[hash].[ext]',
+      handleImages: ['jpeg', 'png', 'svg', 'webp', 'gif'],
+      removeOriginalExtension: false,
+      optimizeImages: true,
+      optimizeImagesInDev: false,
+      mozjpeg: {
+        quality: 80,
       },
-    ]
-  },
-  webpack: (config, { dev, isServer }) => {
-    config.module.rules.push({
-      test: /\.svg$/,
-      use: ['@svgr/webpack'],
-    })
+      optipng: {
+        optimizationLevel: 3,
+      },
+      pngquant: false,
+      gifsicle: {
+        interlaced: true,
+        optimizationLevel: 3,
+      },
+      svgo: {
+        // enable/disable svgo plugins here
+      },
+      webp: {
+        preset: 'default',
+        quality: 75,
+      },
+    },
+  ],
+  [
+    withBundleAnalyzer({
+      reactStrictMode: true,
+      basePath: process.env.NODE_ENV === 'development' ? '' : '/tailwind-nextjs-blog',
+      assetPrefix: process.env.NODE_ENV === 'development' ? '/' : '/tailwind-nextjs-blog/',
+      pageExtensions: ['js', 'jsx', 'md', 'mdx'],
+      eslint: {
+        dirs: ['pages', 'components', 'lib', 'layouts', 'scripts'],
+      },
+      async headers() {
+        return [
+          {
+            source: '/(.*)',
+            headers: securityHeaders,
+          },
+        ]
+      },
+      webpack: (config, { dev, isServer }) => {
+        config.module.rules.push({
+          test: /\.svg$/,
+          use: ['@svgr/webpack'],
+        })
 
-    if (!dev && !isServer) {
-      // Replace React with Preact only in client production build
-      Object.assign(config.resolve.alias, {
-        'react/jsx-runtime.js': 'preact/compat/jsx-runtime',
-        react: 'preact/compat',
-        'react-dom/test-utils': 'preact/test-utils',
-        'react-dom': 'preact/compat',
-      })
-    }
-    return config
-  },
-})
+        if (!dev && !isServer) {
+          // Replace React with Preact only in client production build
+          Object.assign(config.resolve.alias, {
+            'react/jsx-runtime.js': 'preact/compat/jsx-runtime',
+            react: 'preact/compat',
+            'react-dom/test-utils': 'preact/test-utils',
+            'react-dom': 'preact/compat',
+          })
+        }
+        return config
+      },
+    }),
+  ],
+])
