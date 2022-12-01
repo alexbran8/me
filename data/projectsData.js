@@ -1,11 +1,15 @@
-console.log(process.env.NODE_ENV === 'development' ? '' : '/tailwind-nextjs-blog')
+import getConfig from 'next/config'
+const { publicRuntimeConfig } = getConfig()
+
+console.log(publicRuntimeConfig)
+
 const projectsData = [
   {
     title: 'A Search Engine',
     description: `What if you could look up any information in the world? Webpages, images, videos
     and more. Google has many features to help you find exactly what you're looking
     for.`,
-    imgSrc: '/static/images/google.png',
+    imgSrc: `${publicRuntimeConfig.basePath}/static/images/google.png`,
     href: 'https://www.google.com',
   },
   {
