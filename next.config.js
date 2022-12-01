@@ -57,12 +57,12 @@ console.log()
 module.exports = withBundleAnalyzer({
   reactStrictMode: true,
   basePath: process.env.NODE_ENV === 'development' ? '' : '/tailwind-nextjs-blog',
-  assetsPrefix: process.env.NODE_ENV === 'development' ? '' : '/tailwind-nextjs-blog',
+  assetPrefix: process.env.NODE_ENV === 'development' ? '/' : '/tailwind-nextjs-blog',
   pageExtensions: ['js', 'jsx', 'md', 'mdx'],
-  images: {
-    loader: 'akamai',
-    path: '',
-  },
+  // images: {
+  //   loader: 'akamai',
+  //   path: '',
+  // },
   eslint: {
     dirs: ['pages', 'components', 'lib', 'layouts', 'scripts'],
   },
