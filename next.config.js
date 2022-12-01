@@ -55,42 +55,12 @@ const securityHeaders = [
 ]
 
 module.exports = withBundleAnalyzer({
-  optimizedImages: {
-    // these are the default values so you don't have to provide them if they are good enough for your use-case.
-    // but you can overwrite them here with any valid value you want.
-    inlineImageLimit: 8192,
-    imagesFolder: 'images',
-    imagesName: '[name]-[hash].[ext]',
-    handleImages: ['jpeg', 'png', 'svg', 'webp', 'gif'],
-    removeOriginalExtension: false,
-    optimizeImages: false,
-    optimizeImagesInDev: false,
-    mozjpeg: {
-      quality: 80,
-      optipng: {
-        optimizationLevel: 3,
-      },
-      pngquant: false,
-      gifsicle: {
-        interlaced: true,
-        optimizationLevel: 3,
-      },
-      svgo: {
-        // enable/disable svgo plugins here
-      },
-      webp: {
-        preset: 'default',
-        quality: 75,
-      },
-    },
-  },
   reactStrictMode: true,
   basePath: process.env.NODE_ENV === 'development' ? '' : '/tailwind-nextjs-blog',
   assetPrefix: process.env.NODE_ENV === 'development' ? '/' : '/tailwind-nextjs-blog/',
   pageExtensions: ['js', 'jsx', 'md', 'mdx'],
   images: {
-    loader: 'imgix',
-    path: '',
+    deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
   },
   eslint: {
     dirs: ['pages', 'components', 'lib', 'layouts', 'scripts'],
