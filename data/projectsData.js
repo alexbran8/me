@@ -1,8 +1,6 @@
 import getConfig from 'next/config'
 const { publicRuntimeConfig } = getConfig()
 
-console.log(publicRuntimeConfig)
-
 const projectsData = [
   {
     title: 'A Search Engine',
@@ -17,7 +15,7 @@ const projectsData = [
     description: `Imagine being able to travel back in time or to the future. Simple turn the knob
     to the desired date and press "Go". No more worrying about lost keys or
     forgotten headphones with this simple yet affordable solution.`,
-    imgSrc: '/static/images/time-machine.jpg',
+    imgSrc: `${publicRuntimeConfig.basePath}/static/images/time-machine.jpg`,
     href: '/blog/the-time-machine',
   },
 ]
