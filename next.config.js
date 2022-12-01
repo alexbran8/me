@@ -52,10 +52,12 @@ const securityHeaders = [
   },
 ]
 
+console.log(process.env.NODE_ENV)
+
 module.exports = withBundleAnalyzer({
   reactStrictMode: true,
   basePath: '/tailwind-nextjs-blog',
-  assetsPrefix: '/tailwind-nextjs-blog/',
+  // assetsPrefix: '/tailwind-nextjs-blog/',
   pageExtensions: ['js', 'jsx', 'md', 'mdx'],
   images: {
     loader: 'akamai',
@@ -87,7 +89,6 @@ module.exports = withBundleAnalyzer({
         'react-dom': 'preact/compat',
       })
     }
-    console.log(config)
     return config
   },
 })

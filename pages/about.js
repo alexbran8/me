@@ -5,6 +5,7 @@ const DEFAULT_LAYOUT = 'AuthorLayout'
 
 export async function getStaticProps() {
   const authorDetails = await getFileBySlug('authors', ['default'])
+  console.log(authorDetails)
   return { props: { authorDetails } }
 }
 
