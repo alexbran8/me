@@ -4,10 +4,7 @@ import Card from '@/components/Card'
 import { PageSEO } from '@/components/SEO'
 import getConfig from 'next/config'
 
-const { publicRuntimeConfig } = getConfig()
-
 export default function Projects() {
-  console.log(publicRuntimeConfig)
   return (
     <>
       <PageSEO title={`Projects - ${siteMetadata.author}`} description={siteMetadata.description} />
@@ -27,7 +24,7 @@ export default function Projects() {
                 key={d.title}
                 title={d.title}
                 description={d.description}
-                imgSrc={`${publicRuntimeConfig.BASE_PATH}${d.imgSrc}`}
+                imgSrc={`${d.imgSrc}`}
                 href={d.href}
               />
             ))}
