@@ -55,7 +55,7 @@ const securityHeaders = [
 ]
 
 module.exports = withBundleAnalyzer({
-  reactStrictMode: true,
+  reactStrictMode: false,
   basePath: process.env.NODE_ENV === 'development' ? '' : '/tailwind-nextjs-blog',
   assetPrefix: process.env.NODE_ENV === 'development' ? '/' : '/tailwind-nextjs-blog/',
   publicRuntimeConfig: {
