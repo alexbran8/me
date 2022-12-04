@@ -3,7 +3,7 @@
   "version": "1.5.6",
   "private": true,
   "scripts": {
-    "start": "BASE_PATH=/tailwind-nextjs-blog NODE_ENV=development cross-env SOCKET=true node ./scripts/next-remote-watch.js ./data",
+    "start": "BASE_PATH=/ NODE_ENV=development cross-env SOCKET=true node ./scripts/next-remote-watch.js ./data",
     "dev": "next dev",
     "dev:static": "serve ./out",
     "build": "BASE_PATH=/tailwind-nextjs-blog NODE_ENV=development next build && node ./scripts/generate-sitemap",
