@@ -8,11 +8,11 @@ const projectsData = [
     status: `WIP`,
     URL: `https://alexbran8.github.io/react-tensorflow-wall-project/`,
     technologies: `PWA react & tensorflow.JS`,
-    href: `https://github.com/alexbran8/react-tensorflow-wall-project`,
+    href: `/blog/the-wall`,
   },
   {
     title: `ME`,
-    description: `this is me`,
+    description: `this was me`,
     status: `WIP`,
     URL: `https://alexbran8.github.io/me`,
     technologies: `react`,
