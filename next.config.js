@@ -56,10 +56,10 @@ const securityHeaders = [
 
 module.exports = withBundleAnalyzer({
   reactStrictMode: false,
-  basePath: process.env.NODE_ENV === 'development' ? '' : '/tailwind-nextjs-blog',
-  assetPrefix: process.env.NODE_ENV === 'development' ? '/' : '/tailwind-nextjs-blog/',
+  basePath: process.env.NODE_ENV === 'development' ? '' : '/me',
+  assetPrefix: process.env.NODE_ENV === 'development' ? '/' : '/me/',
   publicRuntimeConfig: {
-    basePath: process.env.NODE_ENV === 'development' ? '' : '/tailwind-nextjs-blog',
+    basePath: process.env.NODE_ENV === 'development' ? '' : '/me',
   },
   pageExtensions: ['js', 'jsx', 'md', 'mdx'],
   images: {
