@@ -1,0 +1,55 @@
+{
+  "pageProps": {
+    "post": {
+      "mdxSource": "var Component=(()=>{var l=Object.create;var a=Object.defineProperty;var d=Object.getOwnPropertyDescriptor;var s=Object.getOwnPropertyNames;var m=Object.getPrototypeOf,p=Object.prototype.hasOwnProperty;var o=n=>a(n,\"__esModule\",{value:!0});var u=(n,i)=>()=>(i||n((i={exports:{}}).exports,i),i.exports),f=(n,i)=>{o(n);for(var r in i)a(n,r,{get:i[r],enumerable:!0})},g=(n,i,r)=>{if(i&&typeof i==\"object\"||typeof i==\"function\")for(let t of s(i))!p.call(n,t)&&t!==\"default\"&&a(n,t,{get:()=>i[t],enumerable:!(r=d(i,t))||r.enumerable});return n},x=n=>g(o(a(n!=null?l(m(n)):{},\"default\",n&&n.__esModule&&\"default\"in n?{get:()=>n.default,enumerable:!0}:{value:n,enumerable:!0})),n);var h=u((y,c)=>{c.exports=_jsx_runtime});var _={};f(_,{default:()=>M,frontmatter:()=>j});var e=x(h()),j={title:\"The Wall\",date:\"2022-08-01\",tags:[\"react\",\"tensorflow\",\"pwa\"],draft:!1,summary:\"Machine Learning startup project\"};function w(n={}){let{wrapper:i}=n.components||{};return i?(0,e.jsx)(i,Object.assign({},n,{children:(0,e.jsx)(r,{})})):r();function r(){let t=Object.assign({h1:\"h1\",a:\"a\",span:\"span\",p:\"p\",em:\"em\",h2:\"h2\"},n.components);return(0,e.jsxs)(e.Fragment,{children:[(0,e.jsxs)(t.h1,{id:\"how-to-manage-room-redecoration-efficiently\",children:[(0,e.jsx)(t.a,{\"aria-hidden\":\"true\",href:\"#how-to-manage-room-redecoration-efficiently\",tabIndex:\"-1\",children:(0,e.jsx)(t.span,{className:\"icon icon-link\"})}),\"How to manage room redecoration efficiently\"]}),(0,e.jsxs)(t.p,{children:[(0,e.jsx)(t.em,{children:\"Title\"}),\": The Time Machine\"]}),(0,e.jsxs)(t.p,{children:[(0,e.jsx)(t.em,{children:\"Author\"}),\": Me\"]}),(0,e.jsxs)(t.p,{children:[(0,e.jsx)(t.em,{children:\"Subject\"}),\": Machine Learning\"]}),(0,e.jsxs)(t.p,{children:[(0,e.jsx)(t.em,{children:\"Language\"}),\": English\"]}),(0,e.jsxs)(t.p,{children:[(0,e.jsx)(t.em,{children:\"Source\"}),\": [github]\"]}),(0,e.jsxs)(t.h2,{id:\"introduction\",children:[(0,e.jsx)(t.a,{\"aria-hidden\":\"true\",href:\"#introduction\",tabIndex:\"-1\",children:(0,e.jsx)(t.span,{className:\"icon icon-link\"})}),\"Introduction\"]}),(0,e.jsx)(t.p,{children:'\"Still working on this... stay soon...\"'})]})}}var M=w;return _;})();\n;return Component;",
+      "toc": [
+        {
+          "value": "How to manage room redecoration efficiently",
+          "url": "#how-to-manage-room-redecoration-efficiently",
+          "depth": 1
+        },
+        { "value": "Introduction", "url": "#introduction", "depth": 2 }
+      ],
+      "frontMatter": {
+        "readingTime": { "text": "1 min read", "minutes": 0.27, "time": 16200, "words": 54 },
+        "slug": "the-wall",
+        "fileName": "the-wall.mdx",
+        "title": "The Wall",
+        "date": "2022-08-01T00:00:00.000Z",
+        "tags": ["react", "tensorflow", "pwa"],
+        "draft": false,
+        "summary": "Machine Learning startup project"
+      }
+    },
+    "authorDetails": [
+      {
+        "readingTime": { "text": "1 min read", "minutes": 0.61, "time": 36600, "words": 122 },
+        "slug": ["default"],
+        "fileName": "default.md",
+        "name": "Alexandru Bran",
+        "avatar": "/static/images/avatar.png",
+        "occupation": "The cyclist programmer",
+        "company": "Haufe Group Romania",
+        "email": "alexbran8@gmail.com",
+        "twitter": "https://twitter.com/Twitter",
+        "linkedin": "https://www.linkedin.com/in/alexandru-bran-648ba9a4/",
+        "github": "https://github.com/alexbran8",
+        "date": null
+      }
+    ],
+    "prev": {
+      "title": "New features in v1",
+      "date": "2021-08-07T15:32:14.000Z",
+      "lastmod": "2021-02-01",
+      "tags": ["next-js", "tailwind", "guide"],
+      "draft": false,
+      "summary": "An overview of the new features released in v1 - code block copy, multiple authors, frontmatter layout and more",
+      "layout": "PostSimple",
+      "bibliography": "references-data.bib",
+      "canonicalUrl": "https://tailwind-nextjs-starter-blog.vercel.app/blog/new-features-in-v1/",
+      "slug": "new-features-in-v1"
+    },
+    "next": null
+  },
+  "__N_SSG": true
+}
