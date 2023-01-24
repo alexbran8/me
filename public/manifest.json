@@ -3,28 +3,28 @@
   "background_color": "#f69435",
   "display": "standalone",
   "scope": "/",
-  "start_url": "https://alexbran8.github.io/me/",
+  "start_url": "https://alexbran8.github.io/react-tensorflow-wall-project/",
   "short_name": "me",
   "name": "code-cycling-nutrition blog",
   "description": "This is a next.JS blog PWA app",
   "icons": [
     {
-      "src": "/me/icon-192x192.png",
+      "src": "icon-192x192.png",
       "sizes": "192x192",
       "type": "image/png"
     },
     {
-      "src": "/me/icon-256x256.png",
+      "src": "icon-256x256.png",
       "sizes": "256x256",
       "type": "image/png"
     },
     {
-      "src": "/me/icon-384x384.png",
+      "src": "icon-384x384.png",
       "sizes": "384x384",
       "type": "image/png"
     },
     {
-      "src": "/me/icon-512x512.png",
+      "src": "icon-512x512.png",
       "sizes": "512x512",
       "type": "image/png"
     }
