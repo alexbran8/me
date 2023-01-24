@@ -1,8 +1,18 @@
 const withPlugins = require('next-compose-plugins')
 const optimizedImages = require('next-optimized-images')
+const withPWA = require('next-pwa')(pwaConfig)
 const withBundleAnalyzer = require('@next/bundle-analyzer')({
   enabled: process.env.ANALYZE === 'true',
 })
+
+const pwaConfig = {
+  pwa: {
+    dest: 'public',
+    register: true,
+    disable: process.env.NODE_ENV === 'development',
+    skipWaiting: true,
+  },
+}
 
 // You might need to insert additional domains in script-src if you are using external services
 const ContentSecurityPolicy = `
@@ -54,44 +64,46 @@ const securityHeaders = [
   },
 ]
 
-module.exports = withBundleAnalyzer({
-  reactStrictMode: false,
-  basePath: process.env.NODE_ENV === 'development' ? '' : '/me',
-  assetPrefix: process.env.NODE_ENV === 'development' ? '/' : '/me/',
-  publicRuntimeConfig: {
+module.exports = withPWA(
+  withBundleAnalyzer({
+    reactStrictMode: false,
     basePath: process.env.NODE_ENV === 'development' ? '' : '/me',
-  },
-  pageExtensions: ['js', 'jsx', 'md', 'mdx'],
-  images: {
-    deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
-    unoptimized: true,
-  },
-  eslint: {
-    dirs: ['pages', 'components', 'lib', 'layouts', 'scripts'],
-  },
-  async headers() {
-    return [
-      {
-        source: '/(.*)',
-        headers: securityHeaders,
-      },
-    ]
-  },
-  webpack: (config, { dev, isServer }) => {
-    config.module.rules.push({
-      test: /\.svg$/,
-      use: ['@svgr/webpack'],
-    })
+    assetPrefix: process.env.NODE_ENV === 'development' ? '/' : '/me/',
+    publicRuntimeConfig: {
+      basePath: process.env.NODE_ENV === 'development' ? '' : '/me',
+    },
+    pageExtensions: ['js', 'jsx', 'md', 'mdx'],
+    images: {
+      deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
+      unoptimized: true,
+    },
+    eslint: {
+      dirs: ['pages', 'components', 'lib', 'layouts', 'scripts'],
+    },
+    async headers() {
+      return [
+        {
+          source: '/(.*)',
+          headers: securityHeaders,
+        },
+      ]
+    },
+    webpack: (config, { dev, isServer }) => {
+      config.module.rules.push({
+        test: /\.svg$/,
+        use: ['@svgr/webpack'],
+      })
 
-    // if (!dev && !isServer) {
-    //   // Replace React with Preact only in client production build
-    //   Object.assign(config.resolve.alias, {
-    //     'react/jsx-runtime.js': 'preact/compat/jsx-runtime',
-    //     react: 'preact/compat',
-    //     'react-dom/test-utils': 'preact/test-utils',
-    //     'react-dom': 'preact/compat',
-    //   })
-    // }
-    return config
-  },
-})
+      // if (!dev && !isServer) {
+      //   // Replace React with Preact only in client production build
+      //   Object.assign(config.resolve.alias, {
+      //     'react/jsx-runtime.js': 'preact/compat/jsx-runtime',
+      //     react: 'preact/compat',
+      //     'react-dom/test-utils': 'preact/test-utils',
+      //     'react-dom': 'preact/compat',
+      //   })
+      // }
+      return config
+    },
+  })
+)
