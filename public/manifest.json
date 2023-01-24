@@ -1,9 +1,9 @@
 {
   "theme_color": "#f69435",
   "background_color": "#f69435",
-  "display": "browser",
+  "display": "standalone",
   "scope": "/me",
-  "start_url": "/me",
+  "start_url": "/",
   "short_name": "me",
   "name": "code-cycling-nutrition blog",
   "description": "This is a next.JS blog PWA app",
