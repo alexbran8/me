@@ -11,6 +11,8 @@ const pwaConfig = {
     register: true,
     disable: process.env.NODE_ENV === 'development',
     skipWaiting: true,
+    // runtimeCaching,
+    buildExcludes: [/middleware-manifest.json$/],
   },
 }
 
@@ -66,46 +68,46 @@ const securityHeaders = [
   },
 ]
 
-module.exports = withPWA(
-  withBundleAnalyzer({
-    reactStrictMode: false,
+const nextConfig = {
+  reactStrictMode: false,
+  basePath: process.env.NODE_ENV === 'development' ? '' : '/me',
+  assetPrefix: process.env.NODE_ENV === 'development' ? '/' : '/me/',
+  publicRuntimeConfig: {
     basePath: process.env.NODE_ENV === 'development' ? '' : '/me',
-    assetPrefix: process.env.NODE_ENV === 'development' ? '/' : '/me/',
-    publicRuntimeConfig: {
-      basePath: process.env.NODE_ENV === 'development' ? '' : '/me',
-    },
-    pageExtensions: ['js', 'jsx', 'md', 'mdx'],
-    images: {
-      deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
-      unoptimized: true,
-    },
-    eslint: {
-      dirs: ['pages', 'components', 'lib', 'layouts', 'scripts'],
-    },
-    async headers() {
-      return [
-        {
-          source: '/(.*)',
-          headers: securityHeaders,
-        },
-      ]
-    },
-    webpack: (config, { dev, isServer }) => {
-      config.module.rules.push({
-        test: /\.svg$/,
-        use: ['@svgr/webpack'],
-      })
+  },
+  pageExtensions: ['js', 'jsx', 'md', 'mdx'],
+  images: {
+    deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
+    unoptimized: true,
+  },
+  eslint: {
+    dirs: ['pages', 'components', 'lib', 'layouts', 'scripts'],
+  },
+  async headers() {
+    return [
+      {
+        source: '/(.*)',
+        headers: securityHeaders,
+      },
+    ]
+  },
+  webpack: (config, { dev, isServer }) => {
+    config.module.rules.push({
+      test: /\.svg$/,
+      use: ['@svgr/webpack'],
+    })
 
-      // if (!dev && !isServer) {
-      //   // Replace React with Preact only in client production build
-      //   Object.assign(config.resolve.alias, {
-      //     'react/jsx-runtime.js': 'preact/compat/jsx-runtime',
-      //     react: 'preact/compat',
-      //     'react-dom/test-utils': 'preact/test-utils',
-      //     'react-dom': 'preact/compat',
-      //   })
-      // }
-      return config
-    },
-  })
-)
+    // if (!dev && !isServer) {
+    //   // Replace React with Preact only in client production build
+    //   Object.assign(config.resolve.alias, {
+    //     'react/jsx-runtime.js': 'preact/compat/jsx-runtime',
+    //     react: 'preact/compat',
+    //     'react-dom/test-utils': 'preact/test-utils',
+    //     'react-dom': 'preact/compat',
+    //   })
+    // }
+    return config
+  },
+}
+
+module.exports = withPlugins([withPWA, nextConfig])
