@@ -8,7 +8,7 @@ class MyDocument extends Document {
     return (
       <Html lang="en" className="scroll-smooth">
         <Head>
-          <link rel="manifest" href={`${publicRuntimeConfig.basePath}/manifest.json`} />
+          <link rel="manifest" href={`/manifest.json`} />
           <link rel="apple-touch-icon" href={`${publicRuntimeConfig.basePath}/icon.png`}></link>
           <meta name="theme-color" content="#fff" />
           <link
