@@ -12,7 +12,7 @@ const pwaConfig = {
     disable: process.env.NODE_ENV === 'development',
     skipWaiting: true,
     // runtimeCaching,
-    buildExcludes: [/middleware-manifest.json$/],
+    // buildExcludes: [/middleware-manifest.json$/],
   },
 }
 
