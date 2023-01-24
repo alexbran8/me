@@ -1,6 +1,6 @@
 const withPlugins = require('next-compose-plugins')
 const optimizedImages = require('next-optimized-images')
-const withPWA = require('next-pwa')(pwaConfig)
+
 const withBundleAnalyzer = require('@next/bundle-analyzer')({
   enabled: process.env.ANALYZE === 'true',
 })
@@ -13,6 +13,8 @@ const pwaConfig = {
     skipWaiting: true,
   },
 }
+
+const withPWA = require('next-pwa')(pwaConfig)
 
 // You might need to insert additional domains in script-src if you are using external services
 const ContentSecurityPolicy = `
