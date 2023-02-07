@@ -1,12 +1,4 @@
-[submodule "dev_plan"]
-	path = dev_plan
-	url = https://github.com/alexbran8/dev_plan
-[submodule "blogcontent"]
-	path = blogcontent
-	url = https://github.com/alexbran8/dev_plan
-[submodule "data/blogcontent"]
-	path = data/blogcontent
-	url = https://github.com/alexbran8/dev_plan
 [submodule "data/blog"]
 	path = data/blog
 	url = https://github.com/alexbran8/dev_plan
+	branch = master

@@ -31,7 +31,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
         with:
-          submodules: recursive
+            submodules: 'true'
       - name :
         run: cd data && ls -l
       - name: Detect package manager
