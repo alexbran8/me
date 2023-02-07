@@ -33,7 +33,7 @@ jobs:
         with:
           submodules: recursive
       - name :
-        run: ls -l
+        run: cd data && ls -l
       - name: Detect package manager
         id: detect-package-manager
         run: |
