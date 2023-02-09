@@ -31,6 +31,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
         with:
+          token: "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"
           submodules: 'true'
       - name :
         run: cd data && ls -l
