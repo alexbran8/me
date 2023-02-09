@@ -29,11 +29,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
-        # with:
-        #   token: "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"
-        #   submodules: 'true'
-      - name :
+        uses: actions/checkout@v2
+      - name: Checkout submodules
+        run: git submodule update --init --recursive
+      - name: CHECK
         run: cd data && ls -l
       - name: Detect package manager
         id: detect-package-manager
