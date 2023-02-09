@@ -31,7 +31,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
       - name: Checkout submodules
-        run: git submodule update --init --recursive
+        uses: textbook/git-checkout-submodule-action@master
       - name: CHECK
         run: cd data/blog && ls -l
       - name: Detect package manager
