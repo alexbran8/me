@@ -32,6 +32,8 @@ jobs:
         uses: actions/checkout@v3
       - name: Checkout submodules
         uses: textbook/git-checkout-submodule-action@master
+        with:
+          remote: true
       - name: CHECK
         run: cd data/blog && ls -l
       - name: Detect package manager
