@@ -33,7 +33,7 @@ jobs:
         with:
           submodules: 'true'
       - name :
-        run: cd data/blog && ls -l
+        run: cd data && ls -l
       - name: Detect package manager
         id: detect-package-manager
         run: |
