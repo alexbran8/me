@@ -29,11 +29,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - name: Checkout submodules
         run: git submodule update --init --recursive
       - name: CHECK
-        run: cd data && ls -l
+        run: cd data/blog && ls -l
       - name: Detect package manager
         id: detect-package-manager
         run: |
