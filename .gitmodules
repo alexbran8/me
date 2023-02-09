@@ -1,7 +1,7 @@
 [submodule "dev_plan"]
 	path = data/blog
-	url = https://github.com/alexbran8/dev_plan
+	url = https://github.com/alexbran8/dev_plan.git
 	branch = master
 [submodule "data/blog"]
 	path = data/blog
-	url = https://github.com/alexbran8/dev_plan
+	url = https://github.com/alexbran8/dev_plan.git
