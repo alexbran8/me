@@ -30,8 +30,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      - name: Checkout submoules
-        uses: snickerbockers/submodules-init@v4
+        with:
+          submodules: 'true'
       - name :
         run: cd data && ls -l
       - name: Detect package manager
