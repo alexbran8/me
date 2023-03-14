@@ -12,6 +12,7 @@ const root = process.cwd()
 
 export async function getStaticPaths() {
   const tags = await getAllTags('blog')
+  /* eslint-disable */
 
   return {
     paths: Object.keys(tags).map((tag) => ({
@@ -25,6 +26,7 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
   const allPosts = await getAllFilesFrontMatter('blog')
+
   const filteredPosts = allPosts.filter(
     (post) => post.draft !== true && post.tags.map((t) => kebabCase(t)).includes(params.tag)
   )

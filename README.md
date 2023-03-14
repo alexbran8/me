@@ -203,7 +203,6 @@ Currently 7 fields are supported.
 ```
 title (required)
 date (required)
-tags (required, can be empty array)
 lastmod (optional)
 draft (optional)
 summary (optional)
