@@ -1,4 +1,0 @@
-
-[submodule "data/blog"]
-	path = data/blog
-	url = https://github.com/alexbran8/learning_wiki.git
