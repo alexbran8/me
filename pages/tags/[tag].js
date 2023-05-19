@@ -25,33 +25,41 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  const allPosts = await getAllFilesFrontMatter('blog')
+  try {
+    const allPosts = await getAllFilesFrontMatter('blog')
 
-  const filteredPosts = allPosts.filter(
-    (post) => post.draft !== true && post.tags.map((t) => kebabCase(t)).includes(params.tag)
-  )
+    const filteredPosts = allPosts.filter(
+      (post) => post.draft !== true && post.tags.map((t) => kebabCase(t)).includes(params.tag)
+    )
 
-  // rss
-  if (filteredPosts.length > 0) {
-    const rss = generateRss(filteredPosts, `tags/${params.tag}/feed.xml`)
-    const rssPath = path.join(root, 'public', 'tags', params.tag)
-    fs.mkdirSync(rssPath, { recursive: true })
-    fs.writeFileSync(path.join(rssPath, 'feed.xml'), rss)
+    // rss
+    if (filteredPosts.length > 0) {
+      const rss = generateRss(filteredPosts, `tags/${params.tag}/feed.xml`)
+      const rssPath = path.join(root, 'public', 'tags', params.tag)
+      fs.mkdirSync(rssPath, { recursive: true })
+      fs.writeFileSync(path.join(rssPath, 'feed.xml'), rss)
+    }
+
+    return { props: { posts: filteredPosts, tag: params.tag } }
+  } catch (error) {
+    console.log(error, post)
   }
-
-  return { props: { posts: filteredPosts, tag: params.tag } }
 }
 
 export default function Tag({ posts, tag }) {
-  // Capitalize first letter and convert space to dash
-  const title = tag[0].toUpperCase() + tag.split(' ').join('-').slice(1)
-  return (
-    <>
-      <TagSEO
-        title={`${tag} - ${siteMetadata.author}`}
-        description={`${tag} tags - ${siteMetadata.author}`}
-      />
-      <ListLayout posts={posts} title={title} />
-    </>
-  )
+  try {
+    // Capitalize first letter and convert space to dash
+    const title = tag[0].toUpperCase() + tag.split(' ').join('-').slice(1)
+    return (
+      <>
+        <TagSEO
+          title={`${tag} - ${siteMetadata.author}`}
+          description={`${tag} tags - ${siteMetadata.author}`}
+        />
+        <ListLayout posts={posts} title={title} />
+      </>
+    )
+  } catch (error) {
+    console.log(error)
+  }
 }
