@@ -21,9 +21,7 @@ const ScrollTopAndComment = () => {
     document.getElementById('comment').scrollIntoView()
   }
   return (
-    <div
-      className={`fixed right-8 bottom-8 hidden flex-col gap-3 ${show ? 'md:flex' : 'md:hidden'}`}
-    >
+    <div className={`right-bottom-8 fixed hidden flex-col gap-3 ${show ? 'md:flex' : 'md:hidden'}`}>
       {siteMetadata.comment.provider && (
         <button
           aria-label="Scroll To Comment"
