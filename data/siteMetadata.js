@@ -1,6 +1,6 @@
 const siteMetadata = {
   title: 'Next.js Starter Blog',
-  author: 'Tails Azimuth',
+  author: 'Alexandru Bran',
   headerTitle: 'CyclingCodeBlog',
   description: 'A blog created with Next.js and Tailwind.css',
   language: 'en-us',
@@ -12,7 +12,7 @@ const siteMetadata = {
   socialBanner: `${process.env.BASE_PATH}/static/images/twitter-card.png`,
   email: 'address@yoursite.com',
   github: 'https://github.com',
-  twitter: 'https://twitter.com/Twitter',
+  // twitter: 'https://twitter.com/Twitter',
   facebook: 'https://facebook.com',
   youtube: 'https://youtube.com',
   linkedin: 'https://www.linkedin.com',
