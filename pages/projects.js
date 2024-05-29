@@ -24,6 +24,7 @@ export default function Projects() {
                 imgSrc={`${d.imgSrc}`}
                 alt="alternative text"
                 href={d.href}
+                technologies={d.technologies}
               />
             ))}
           </div>
