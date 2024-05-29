@@ -59,6 +59,14 @@ const projectsData = [
     href: '',
   },
   {
+    title: `ancaluca.ro`,
+    description: `Massage & Kineto`,
+    status: `WIP`,
+    URL: `https://alexbran8.github.io/me/#/blog`,
+    technologies: `react`,
+    // href: `https://github.com/alexbran8/blog`,
+  },
+  {
     title: `alergampentruviata.ro`,
     description: `Team and projects presentation. Donations.`,
     status: `WIP`,
