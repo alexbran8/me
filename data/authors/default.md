@@ -1,6 +1,6 @@
 ---
 name: Alexandru Bran
-avatar: /static/images/avatar.png
+avatar: /static/images/avatar_new.png
 occupation: The cyclist programmer
 company: Haufe Group Romania
 email: alexbran8@gmail.com
