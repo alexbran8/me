@@ -25,6 +25,7 @@ export default function Projects() {
                 alt="alternative text"
                 href={d.href}
                 technologies={d.technologies}
+                status={d.status}
               />
             ))}
           </div>

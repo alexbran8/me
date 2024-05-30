@@ -3,13 +3,14 @@ import Link from './Link'
 import getConfig from 'next/config'
 const { publicRuntimeConfig } = getConfig()
 
-const Card = ({ title, description, imgSrc, href, technologies }) => (
+const Card = ({ title, description, imgSrc, href, status, technologies }) => (
   <div className="md p-4 md:w-1/2" style={{ maxWidth: '544px' }}>
     <div
       className={`${
         imgSrc && 'h-full'
       }  overflow-hidden rounded-md border-2 border-gray-200 border-opacity-60 dark:border-gray-700`}
     >
+      <div className="flex justify-end bg-pink-500 p-2">{status}</div>
       {/* {imgSrc &&
         (href ? (
           <Link href={href} aria-label={`Link to ${title}`}>
