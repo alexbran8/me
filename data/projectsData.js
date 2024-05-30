@@ -69,7 +69,7 @@ const projectsData = [
   {
     title: `alergampentruviata.ro`,
     description: `Team and projects presentation. Donations.`,
-    status: `TERMINATED`,
+    status: `CLOSED/CANCELED`,
     URL: `https://alexbran8.github.io/me/#/blog`,
     technologies: `react`,
     // href: `https://github.com/alexbran8/blog`,
