@@ -3,7 +3,7 @@ const siteMetadata = {
   title: 'CyclingCodeBlog',
   author: 'Alexandru Bran',
   headerTitle: 'CyclingCodeBlog',
-  description: 'A blog created with Next.js and Tailwind.css',
+  description: 'Enjoy my latest posts',
   language: 'en-us',
   theme: 'system', // system, dark or light
   siteUrl: 'https://alexbran8.github.io/me',
