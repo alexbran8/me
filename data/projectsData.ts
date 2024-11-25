@@ -27,8 +27,8 @@ const projectsData: Project[] = [
   },
   {
     title: `CYCLING CODE BLOG`,
-    description: `this was me`,
-    status: `WIP`,
+    description: `articles in spanish about cycling`,
+    status: `PRODUCTION`,
     URL: `https://alexbran8.github.io/me`,
     technologies: `next.JS`,
     // href: `https://github.com/alexbran8/me`,
