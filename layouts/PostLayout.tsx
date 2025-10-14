@@ -13,6 +13,8 @@ import ScrollTopAndComment from '@/components/ScrollTopAndComment'
 const editUrl = (path) => `${siteMetadata.siteRepo}/blob/main/data/${path}`
 const discussUrl = (path) =>
   `https://mobile.twitter.com/search?q=${encodeURIComponent(`${siteMetadata.siteUrl}/${path}`)}`
+const facebookShareUrl = (path) =>
+  `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(`${siteMetadata.siteUrl}/${path}`)}`
 
 const postDateTemplate: Intl.DateTimeFormatOptions = {
   weekday: 'long',
@@ -97,14 +99,20 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
               <div className="prose max-w-none pb-8 pt-10 dark:prose-invert">{children}</div>
               {siteMetadata.isSharingEnabled && (
                 <div className="pb-6 pt-6 text-center text-sm text-gray-700 dark:text-gray-300">
-                  <Link href={discussUrl(path)} rel="nofollow">
-                    Share on instagram
+                  {siteMetadata.instagramURL && (
+                    <>
+                      <Link href={siteMetadata.instagram || '#'} rel="nofollow" target="_blank">
+                        Follow on Instagram
+                      </Link>
+                      {` • `}
+                    </>
+                  )}
+                  <Link href={facebookShareUrl(path)} target="_blank" rel="noopener noreferrer">
+                    Share on Facebook
                   </Link>
-                  {` • `}
-                  <Link href={editUrl(filePath)}>Share on facebook</Link>
                 </div>
               )}
-              {siteMetadata.comments && (
+              {siteMetadata.comments?.enabled && (
                 <div
                   className="pb-6 pt-6 text-center text-gray-700 dark:text-gray-300"
                   id="comment"
