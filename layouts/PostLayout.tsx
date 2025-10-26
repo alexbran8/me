@@ -112,6 +112,7 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
                   </Link>
                 </div>
               )}
+              {/* @ts-ignore known issue */}
               {siteMetadata.comments?.enabled && (
                 <div
                   className="pb-6 pt-6 text-center text-gray-700 dark:text-gray-300"
